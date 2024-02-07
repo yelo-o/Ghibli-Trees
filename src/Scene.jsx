@@ -1,4 +1,4 @@
-import {useRef, useState} from 'react'
+import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 function Box(props) {
@@ -6,7 +6,6 @@ function Box(props) {
     const [hovered, setHover] = useState(false);
     const [active, setActive] = useState(false);
     useFrame((state, delta) => (mesh.current.rotation.x += delta));
-
     return (
         <mesh 
             {...props}
@@ -17,8 +16,8 @@ function Box(props) {
             onPointerOver={(event) => setHover(true)}
             onPointerOut={(event) => setHover(false)}
         >
-        <boxGeometry args={[1, 1, 1]}/>
-        <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+        <boxGeometry castShadow args={[1, 1, 1]}/>
+        <meshStandardMaterial castShadow color={hovered ? "hotpink" : "orange"} />
         </mesh>
     )
 }
